@@ -180,7 +180,7 @@ export default function TurnstileInput(props: Props) {
     <div
       className='cf-turnstile'
       data-sitekey={props.siteKey}
-      data-locale={props.locale}
+      data-language={props.locale}
       data-response-field-name={props.fieldName}
       data-theme={props.theme || 'auto'}
       data-size={props.size || 'normal'}
