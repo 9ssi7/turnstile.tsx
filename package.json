@@ -35,6 +35,9 @@
     "url": "git+https://github.com/ssibrahimbas/turnstile.tsx.git"
   },
   "peerDependencies": {
+    "react": ">=16"
+  },
+  "optionalPeerDependencies": {
     "react": ">=16",
     "next": ">=11"
   },
