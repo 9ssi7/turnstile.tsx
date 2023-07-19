@@ -1,6 +1,6 @@
 {
   "name": "turnstile-next",
-  "version": "0.1.0",
+  "version": "0.1.5",
   "description": "The Cloudflare Turnstile Client Side Rendering for React and NextJS",
   "main": "./dist/cjs/index.js",
   "module": "./dist/esm/index.js",
@@ -41,13 +41,6 @@
     "react": ">=16",
     "next": ">=11"
   },
-  "files": [
-    "dist",
-    "LICENSE",
-    "README.md",
-    "utils",
-    "vercel"
-  ],
   "keywords": [
     "cloudflare",
     "cf-workers",
@@ -59,5 +52,14 @@
     "typescript",
     "tsx",
     "jsx"
+  ],
+  "files": [
+    "dist",
+    "LICENSE",
+    "README.md",
+    "./utils.js",
+    "./utils.d.ts",
+    "./vercel.js",
+    "./vercel.d.ts"
   ]
 }
