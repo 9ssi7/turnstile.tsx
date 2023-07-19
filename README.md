@@ -142,6 +142,29 @@ export default function MyComponent() {
 }
 ```
 
+### `checkWidgetRender`
+
+This function can be used to check if the Turnstile challenge has been rendered.
+
+example:
+
+```tsx
+import { useEffect } from 'react';
+import { checkWidgetRender } from 'turnstile-next/utils';
+
+export default function MyComponent() {
+  useEffect(() => {
+    checkWidgetRender();
+  }, []);
+
+  return (
+    <>
+        <div>My Component</div>
+    </>
+  );
+}
+```
+
 ## Contributing
 
 Contributions are always welcome!

@@ -1,6 +1,6 @@
 {
   "name": "turnstile-next",
-  "version": "0.1.7",
+  "version": "0.1.9",
   "description": "The Cloudflare Turnstile Client Side Rendering for React and NextJS",
   "main": "./dist/cjs/index.js",
   "module": "./dist/esm/index.js",
