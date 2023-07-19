@@ -19,19 +19,52 @@ yarn add turnstile-next
 In your layout or page, import the `TurnstileNextContext` and use it your page or layout like so:
 
 ```jsx
-import { TurnstileNextContext } from 'turnstile-next';
+import TurnstileContext from 'turnstile-next/vercel';
 
 export default function Layout({ children }) {
   return (
     <>
         <div>{children}</div>
-        <TurnstileNextContext/>
+        <TurnstileContext />
     </>
   );
 }
 ```
 
 only cloudflare script tag is included here.
+
+## Usage With Vite
+
+In your `index.html` file, use the cloudflare script tag like so:
+
+```html
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" defer async></script>
+```
+
+and you can use the `TurnstileInput` component like so:
+
+```tsx
+import TurnstileInput from 'turnstile-next';
+
+const SITE_KEY = import.meta.env.VITE_SITE_KEY;
+
+export default function MyComponent() {
+  
+  const onVerify = (token : string) => {
+    console.log(token);
+  } 
+
+  const onErr = (err : string) => {
+    console.log(err);
+  }
+  
+  return (
+    <div>
+        <TurnstileInput onVerify={onVerify} onErr={onErr} siteKey={SITE_KEY} />
+    </div>
+  );
+}
+```
 
 ## Usage In Component
 
@@ -80,6 +113,34 @@ The `TurnstileInput` component accepts a set of properties that are used to conf
 | onUnsupported       | A callback that will be called when the challenge is unsupported by the user's browser.            |
 
 For detailed information on each property and its usage, please refer to the [Turnstile documentation](https://developers.cloudflare.com/turnstile/get-started/client-side-rendering/#configurations).
+
+## utils
+
+### `refreshTurnstile`
+
+This function can be used to refresh the Turnstile challenge. It accepts a single parameter, `options`, which is an object that can be used to configure the refresh. Here's a detailed description of each property:
+
+| Property             | Description                                                                                         |
+| -------------------- | --------------------------------------------------------------------------------------------------- |
+| className            | The class name of the Turnstile challenge. Defaults to "cf-turnstile".                              |
+
+example:
+
+```tsx
+import { refreshTurnstile } from 'turnstile-next/utils';
+
+const refresh = () => {
+  refreshTurnstile({ className: 'cf-turnstile' });
+};
+
+export default function MyComponent() {
+  return (
+    <>
+        <button onClick={refresh}>Refresh</button>
+    </>
+  );
+}
+```
 
 ## Contributing
 
