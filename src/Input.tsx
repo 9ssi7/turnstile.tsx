@@ -32,7 +32,7 @@ type Props = {
    * @default 'normal'
    * @see https://developers.cloudflare.com/turnstile/get-started/client-side-rendering/#configurations
    **/
-  size?: 'compact' | 'normal'
+  size?: 'flexible' | 'compact' | 'normal'
 
   /**
    * The name of the field that will be used to store the token.
