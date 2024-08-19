@@ -7,8 +7,9 @@ const defaultClassName = 'cf-turnstile'
 export const refreshTurnstile = (props: Props = {}) => {
   if (typeof window === 'undefined') return
   if ('turnstile' in window) {
+    checkWidgetRender()
     // @ts-ignore
-    window.turnstile.render('.' + (props.className || defaultClassName))
+    window.turnstile.reset('.' + (props.className || defaultClassName))
   }
 }
 
@@ -20,7 +21,8 @@ export const checkWidgetRender = () => {
       window.turnstile.getResponse()
     } catch (err: any) {
       if (err?.message?.includes('not find widget')) {
-        refreshTurnstile()
+        // @ts-ignore
+        window.turnstile.render('.' + defaultClassName)
       }
     }
   }
